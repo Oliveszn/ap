@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
+import LenisProvider from "@/components/common/LenisProvider";
+import Footer from "@/components/common/Footer";
 
 // const timesNewRoman = localFont({
 //   src: [
@@ -60,10 +62,14 @@ export default function RootLayout({
     <html lang="en">
       <body
         // className={`${timesNewRoman.variable} ${helveticaNeue.variable}`}
+        className="flex flex-col min-h-screen"
         suppressHydrationWarning={true}
       >
-        <Navbar />
-        {children}
+        <LenisProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );
